@@ -81,7 +81,12 @@ export async function getHealth() {
 }
 
 export async function getRestaurants() {
-  return apiRequest("/restaurants");
+  const response = await fetch("https://localbite-rogb.onrender.com/restaurants");
+  if (!response.ok) {
+    throw new Error("Could not load restaurants from the deployed LocalBite backend.");
+  }
+
+  return response.json();
 }
 
 export async function getRestaurant(restaurantId) {
