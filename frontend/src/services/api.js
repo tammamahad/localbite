@@ -61,7 +61,7 @@ export async function apiRequest(path, options = {}) {
       headers,
     });
   } catch {
-    throw new Error("Cannot reach the LocalBite backend. Make sure FastAPI is running on http://localhost:8000.");
+    throw new Error(`Cannot reach the LocalBite backend at ${API_BASE_URL}.`);
   }
 
   if (!response.ok) {

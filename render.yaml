@@ -13,7 +13,7 @@ services:
       - key: JWT_SECRET_KEY
         generateValue: true
       - key: FRONTEND_ORIGINS
-        value: https://your-netlify-site.netlify.app
+        value: https://localbiteus.netlify.app
       - key: FRONTEND_ORIGIN_REGEX
         value: https://.*\.netlify\.app
       - key: ADMIN_USERNAME
