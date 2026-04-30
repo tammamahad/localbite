@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+const API_BASE_URL = "https://localbite-rogb.onrender.com";
 const AUTH_TOKEN_KEY = "localbite_auth_token";
 const AUTH_USER_KEY = "localbite_auth_user";
 
@@ -81,12 +81,7 @@ export async function getHealth() {
 }
 
 export async function getRestaurants() {
-  const response = await fetch("https://localbite-rogb.onrender.com/restaurants");
-  if (!response.ok) {
-    throw new Error("Could not load restaurants from the deployed LocalBite backend.");
-  }
-
-  return response.json();
+  return apiRequest("/restaurants");
 }
 
 export async function getRestaurant(restaurantId) {
