@@ -2,8 +2,10 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.core.config import settings
+from app.create_admin import create_admin
 from app.database import init_db
 from app.routers import admin, auth, health, menu_items, restaurants, submissions
+from app.seed_demo_data import seed_demo_data
 
 
 app = FastAPI(title=settings.app_name)
@@ -21,6 +23,8 @@ app.add_middleware(
 @app.on_event("startup")
 def startup():
     init_db()
+    seed_demo_data()
+    create_admin()
 
 app.include_router(health.router)
 app.include_router(auth.router)
