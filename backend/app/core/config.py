@@ -7,8 +7,8 @@ from pydantic_settings import BaseSettings
 class Settings(BaseSettings):
     app_name: str = "LocalBite API"
     database_url: str = "sqlite:///./localbite.db"
-    frontend_origins: str = "http://localhost:5173,http://localhost:5174,http://localhost:5175,http://localhost:5176,http://localhost:5177,http://localhost:3000"
-    frontend_origin_regex: str = r"http://localhost:\d+"
+    frontend_origins: str = "http://localhost:5173,http://localhost:5174,http://localhost:5175,http://localhost:5176,http://localhost:5177,http://localhost:3000,https://localbiteus.netlify.app"
+    frontend_origin_regex: str = r"(http://localhost:\d+|https://.*\.netlify\.app)"
     jwt_secret_key: str = "change-this-localbite-secret"
     jwt_algorithm: str = "HS256"
     jwt_access_token_expire_minutes: int = 30
